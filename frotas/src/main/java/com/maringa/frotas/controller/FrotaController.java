@@ -28,6 +28,15 @@ public class FrotaController {
 
         return ResponseEntity.ok(frota);
     }
+    @GetMapping("/maiorQueAMedia")
+    public ResponseEntity<List<FrotaAllDTO>> maiorQueAMedia(){
+        List<FrotaAllDTO> frota = service.findVeiculosKmMaiorQueMedia().stream()
+                .sorted(Comparator.comparing(FrotaAllDTO::getKmRodado))
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(frota);
+    }
+
 
 }
 

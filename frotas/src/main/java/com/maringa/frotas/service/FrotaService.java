@@ -2,6 +2,8 @@ package com.maringa.frotas.service;
 
 import com.maringa.frotas.DTO.FrotaAllDTO;
 import com.maringa.frotas.Utils.DateUtils;
+import com.maringa.frotas.domain.Enums.TipoCombustivelEnum;
+import com.maringa.frotas.domain.Enums.TipoVeiculoEnum;
 import com.maringa.frotas.domain.Frota;
 import com.maringa.frotas.repository.FrotaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +27,11 @@ public class FrotaService {
             frotaAllDTO.setCor(frota.getCor());
             frotaAllDTO.setChassi(frota.getChassi());
             frotaAllDTO.setRenavam(frota.getRenavam());
-            frotaAllDTO.setAnoDeFabricacao(DateUtils.DateToString(frota.getAno_fab()));
+            frotaAllDTO.setAnoDeFabricacao(DateUtils.DateToString(frota.getAnoFabricacao()));
             frotaAllDTO.setDataAdquirido(DateUtils.DateToString(frota.getDataAdquirido()));
             frotaAllDTO.setNEixos(frota.getNEixos());
-            frotaAllDTO.setTipoCombustivel(frota.getTipoCombustivel());
+            frotaAllDTO.setTipoVeiculo(TipoVeiculoEnum.fromCodigo(frota.getTipoVeiculo()).getDescricao());
+            frotaAllDTO.setTipoCombustivel(TipoCombustivelEnum.fromCodigo(frota.getTipoCombustivel()).getDescricao());
             frotaAllDTO.setTanqueTotal(frota.getTanqueTotal());
             frotaAllDTO.setKmRodado(frota.getKmRodado());
             frotaAllDTO.setStatusFrota(frota.getStatusFrota());
@@ -44,6 +47,11 @@ public class FrotaService {
 
     public List<FrotaAllDTO> findAllFrota() {
         List<Frota> listFrota = repository.findAll();
+        return listToListDTO(listFrota);
+    }
+
+    public List<FrotaAllDTO> findVeiculosKmMaiorQueMedia(){
+        List<Frota> listFrota = repository.findVeiculosKmMaiorQueMedia();
         return listToListDTO(listFrota);
     }
 

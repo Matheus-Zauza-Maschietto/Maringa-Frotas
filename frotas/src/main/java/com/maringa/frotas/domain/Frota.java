@@ -24,7 +24,10 @@ public class Frota implements Serializable {
     private String cor;
     private String chassi;
     private String renavam;
-    private Date ano_fab;
+    @Column(name = "anofabricacao")
+    private Date anoFabricacao;
+    @Column(name = "tipoveiculo")
+    private Long tipoVeiculo;
     @Column(name = "neixos")
     private Long nEixos;
     @Column(name = "dataadquirido")
