@@ -55,6 +55,10 @@ public class FrotaService {
         return listToListDTO(listFrota);
     }
 
+    public Frota findVeiculoByPlaca(String placa){
+        return repository.findFrotaByPlaca(placa);
+    }
+
 }
 
 

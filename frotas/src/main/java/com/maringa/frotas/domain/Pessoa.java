@@ -1,5 +1,7 @@
 package com.maringa.frotas.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.maringa.frotas.controller.MotoristaController;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,5 +28,10 @@ public class Pessoa {
     @ManyToOne
     @JoinColumn(name = "idcargo", referencedColumnName = "idCargo")
     private Cargo idCargo;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Motorista motorista;
 
 }
