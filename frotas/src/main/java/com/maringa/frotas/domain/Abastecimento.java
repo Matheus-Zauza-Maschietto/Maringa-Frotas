@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,17 +18,25 @@ public class Abastecimento {
     @Column(name = "idabastecimento")
     private Long idAbastecimento;
     @Column(name = "litrosabast")
-    private Double litrosAbastecimento;
+    private Double litrosAbastecidos;
 
     @Column(name = "valorlitro")
     private Double valorLitro;
     @Column(name = "tipocombustivel")
     private Long tipoCombustivel;
 
-    @Column(name= "idfrota")
-    private Long idFrota;
+    @Column(name = "dataabastecimento")
+    private Date dataAbastecimento;
 
-    @Column(name= "idposto")
-    private Long idPosto;
+    @Transient
+    private Double valorTotal;
+
+    @ManyToOne
+    @JoinColumn(name = "idfrota", referencedColumnName = "idfrota")
+    private Frota idFrota;
+
+    @ManyToOne
+    @JoinColumn(name = "idposto", referencedColumnName = "idposto")
+    private Posto idPosto;
 
 }

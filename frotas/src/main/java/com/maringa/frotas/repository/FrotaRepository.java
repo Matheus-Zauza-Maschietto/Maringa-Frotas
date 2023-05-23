@@ -24,4 +24,6 @@ public interface FrotaRepository extends JpaRepository<Frota, Long> {
 
     public Frota findFrotaByPlaca(String placa);
 
+    public Frota findFrotaByIdFrota(Long id);
+
 }

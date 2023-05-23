@@ -29,6 +29,7 @@ public class Pessoa {
     @JoinColumn(name = "idcargo", referencedColumnName = "idCargo")
     private Cargo idCargo;
 
+
     @JsonIgnore
     @OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn

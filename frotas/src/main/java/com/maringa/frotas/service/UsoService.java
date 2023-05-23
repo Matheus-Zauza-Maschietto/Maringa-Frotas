@@ -1,28 +1,24 @@
 package com.maringa.frotas.service;
 
-import com.maringa.frotas.domain.Pessoa;
-import com.maringa.frotas.repository.PessoaRepository;
+import com.maringa.frotas.domain.Uso;
+import com.maringa.frotas.repository.UsoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class PessoaService {
+public class UsoService {
 
     @Autowired
-    private PessoaRepository repository;
+    private UsoRepository repository;
 
-
-    public List<Pessoa> findAllPessoa() {
+    public List<Uso> findAll(){
         return repository.findAll();
     }
 
-    public Pessoa findPessoaById(Long id) {
+    public Uso findById(Long id){
         return repository.findById(id).orElse(null);
     }
 
 }
-
-
-

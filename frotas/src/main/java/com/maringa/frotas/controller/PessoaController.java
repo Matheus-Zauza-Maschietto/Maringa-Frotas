@@ -7,6 +7,7 @@ import com.maringa.frotas.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,18 +18,24 @@ import java.util.stream.Collectors;
 
 
 @RestController
-@RequestMapping("/pessoa")
+@RequestMapping("/funcionarios")
 public class PessoaController {
 
     @Autowired
     private PessoaService service;
 
+
     @GetMapping
-    public ResponseEntity<Object> mostrar(){
+    public ResponseEntity<Object> mostrarPessoa(){
         Object pessoa = service.findAllPessoa();
         return ResponseEntity.ok(pessoa);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> mostrarPessoaById(@PathVariable Long id){
+        Object pessoa = service.findAllPessoa();
+        return ResponseEntity.ok(pessoa);
+    }
 
 }
 

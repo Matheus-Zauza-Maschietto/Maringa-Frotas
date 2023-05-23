@@ -1,10 +1,10 @@
 package com.maringa.frotas.controller;
 
 import com.maringa.frotas.DTO.FrotaAllDTO;
+import com.maringa.frotas.DTO.FrotaViagemDTO;
 import com.maringa.frotas.domain.Frota;
 import com.maringa.frotas.service.FrotaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 
 @RestController
-@RequestMapping("/frota")
+@RequestMapping("/veiculos")
 public class FrotaController {
 
     @Autowired
@@ -46,6 +46,16 @@ public class FrotaController {
         return ResponseEntity.ok(service.findVeiculoByPlaca(placa));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Frota> getById(@PathVariable Long id){
+
+        return ResponseEntity.ok(service.findVeiculoById(id));
+    }
+
+    @GetMapping("/{id}/viagens")
+    public ResponseEntity<FrotaViagemDTO> getViagensByVeiculo(@PathVariable Long id){
+        return ResponseEntity.ok(service.viagensVeiculo(id));
+    }
 
 }
 

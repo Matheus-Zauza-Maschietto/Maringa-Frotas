@@ -13,9 +13,9 @@ public class Posto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idorgao")
+    @Column(name = "idposto")
     private Long idPosto;
 
-    @Column(name = "nomePosto")
+    @Column(name = "nomeposto")
     private String nomePosto;
 }
