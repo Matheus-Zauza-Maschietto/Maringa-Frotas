@@ -33,16 +33,11 @@ public class FrotaService {
 
         for (Frota frota : listFrota) {
             FrotaAllDTO frotaAllDTO = new FrotaAllDTO();
+            frotaAllDTO.setId(frota.getIdFrota());
             frotaAllDTO.setPlaca(frota.getPlaca());
-            frotaAllDTO.setCor(frota.getCor());
-            frotaAllDTO.setChassi(frota.getChassi());
-            frotaAllDTO.setRenavam(frota.getRenavam());
-            frotaAllDTO.setAnoDeFabricacao(DateUtils.DateToString(frota.getAnoFabricacao()));
             frotaAllDTO.setDataAdquirido(DateUtils.DateToString(frota.getDataAdquirido()));
-            frotaAllDTO.setNEixos(frota.getNEixos());
             frotaAllDTO.setTipoVeiculo(TipoVeiculoEnum.fromCodigo(frota.getTipoVeiculo()).getDescricao());
             frotaAllDTO.setTipoCombustivel(TipoCombustivelEnum.fromCodigo(frota.getTipoCombustivel()).getDescricao());
-            frotaAllDTO.setTanqueTotal(frota.getTanqueTotal());
             frotaAllDTO.setKmRodado(frota.getKmRodado());
             frotaAllDTO.setStatusFrota(frota.getStatusFrota());
             frotaAllDTO.setLeilao(frota.getLeilao());
@@ -58,16 +53,11 @@ public class FrotaService {
     public static FrotaAllDTO frotaToFrotaDTO(Frota frota) {
 
         FrotaAllDTO frotaAllDTO = new FrotaAllDTO();
+        frotaAllDTO.setId(frota.getIdFrota());
         frotaAllDTO.setPlaca(frota.getPlaca());
-        frotaAllDTO.setCor(frota.getCor());
-        frotaAllDTO.setChassi(frota.getChassi());
-        frotaAllDTO.setRenavam(frota.getRenavam());
-        frotaAllDTO.setAnoDeFabricacao(DateUtils.DateToString(frota.getAnoFabricacao()));
         frotaAllDTO.setDataAdquirido(DateUtils.DateToString(frota.getDataAdquirido()));
-        frotaAllDTO.setNEixos(frota.getNEixos());
         frotaAllDTO.setTipoVeiculo(TipoVeiculoEnum.fromCodigo(frota.getTipoVeiculo()).getDescricao());
         frotaAllDTO.setTipoCombustivel(TipoCombustivelEnum.fromCodigo(frota.getTipoCombustivel()).getDescricao());
-        frotaAllDTO.setTanqueTotal(frota.getTanqueTotal());
         frotaAllDTO.setKmRodado(frota.getKmRodado());
         frotaAllDTO.setStatusFrota(frota.getStatusFrota());
         frotaAllDTO.setLeilao(frota.getLeilao());
@@ -79,7 +69,7 @@ public class FrotaService {
     }
 
     public List<FrotaAllDTO> findAllFrota() {
-        List<Frota> listFrota = repository.findAll();
+        List<Frota> listFrota = repository.findAllByDeletadoIsFalse();
         return listToListDTO(listFrota);
     }
 
@@ -121,6 +111,14 @@ public class FrotaService {
 
         return frotaViagemDTO;
 
+    }
+
+    public Frota saveFrota(Frota veiculo){
+        return repository.save(veiculo);
+    }
+
+    public void deletarVeiculo(Long id){
+            repository.updateDeletadoById(id);
     }
 }
 

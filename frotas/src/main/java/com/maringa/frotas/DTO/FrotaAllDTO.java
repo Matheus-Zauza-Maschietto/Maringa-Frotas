@@ -11,22 +11,17 @@ import java.io.Serializable;
 @Data
 public class FrotaAllDTO implements Serializable {
 
+    private Long id;
     private String placa;
-    private String cor;
-    private String chassi;
-    private String renavam;
-    private String anoDeFabricacao;
     private String tipoVeiculo;
-    private Long nEixos;
-    private String dataAdquirido;
+    private String idCategoria;
+    private String idMarca;
     private String tipoCombustivel;
-    private Long tanqueTotal;
     private Long kmRodado;
+    private String idOrgao;
+    private String dataAdquirido;
     private Boolean statusFrota;
     private Boolean leilao;
-    private String idMarca;
-    private String idCategoria;
-    private String idOrgao;
 
 
 }

@@ -40,6 +40,8 @@ public class AbastecimentoService {
         return abastecimentoList;
     }
 
-
+    public Abastecimento saveAbastecimento(Abastecimento abastecimento){
+        return repository.save(abastecimento);
+    }
 
 }

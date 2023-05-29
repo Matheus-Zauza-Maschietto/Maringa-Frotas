@@ -21,4 +21,8 @@ public class MarcaService {
         return repository.findById(id).orElse(null);
     }
 
+    public Marca saveMarca(Marca marca){
+        return repository.save(marca);
+    }
+
 }

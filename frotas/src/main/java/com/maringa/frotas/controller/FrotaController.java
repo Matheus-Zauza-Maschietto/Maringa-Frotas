@@ -6,16 +6,15 @@ import com.maringa.frotas.domain.Frota;
 import com.maringa.frotas.service.FrotaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
 
+@CrossOrigin
 @RestController
 @RequestMapping("/veiculos")
 public class FrotaController {
@@ -55,6 +54,27 @@ public class FrotaController {
     @GetMapping("/{id}/viagens")
     public ResponseEntity<FrotaViagemDTO> getViagensByVeiculo(@PathVariable Long id){
         return ResponseEntity.ok(service.viagensVeiculo(id));
+    }
+
+    @PostMapping
+    public ResponseEntity<Frota> salvarCategoria(@RequestBody Frota veiculo){
+
+        Frota salvo = service.saveFrota(veiculo);
+
+        ServletUriComponentsBuilder builder = ServletUriComponentsBuilder.fromCurrentRequest();
+
+        var uri = builder.path("/{id}").buildAndExpand(salvo.getIdCategoria()).toUri();
+
+        return ResponseEntity.created(uri).body(salvo);
+    }
+
+    @CrossOrigin
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletarVeiculo(@PathVariable Long id){
+        service.deletarVeiculo(id);
+
+        return  ResponseEntity.noContent().build();
+
     }
 
 }

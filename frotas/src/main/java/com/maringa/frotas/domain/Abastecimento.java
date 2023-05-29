@@ -38,5 +38,4 @@ public class Abastecimento {
     @ManyToOne
     @JoinColumn(name = "idposto", referencedColumnName = "idposto")
     private Posto idPosto;
-
 }

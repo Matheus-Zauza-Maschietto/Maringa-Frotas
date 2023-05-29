@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -51,4 +52,6 @@ public class Frota implements Serializable {
     @JoinColumn(name = "idorgao", referencedColumnName = "idOrgao")
     private Orgao idOrgao;
 
+    @Transient
+    private Boolean deletado;
 }
