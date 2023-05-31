@@ -14,7 +14,7 @@ import java.util.List;
 public class MotoristaViagemDTO implements Serializable {
 
         private Long id;
-        private Long cnh;
+        private String cnh;
         private Pessoa pessoa;
 
         private List<ViagemToPessoaDTO> viagens;

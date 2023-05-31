@@ -17,7 +17,7 @@ public class FrotaAllDTO implements Serializable {
     private String idCategoria;
     private String idMarca;
     private String tipoCombustivel;
-    private Long kmRodado;
+    private String kmRodado;
     private String idOrgao;
     private String dataAdquirido;
     private Boolean statusFrota;

@@ -26,7 +26,7 @@ public class Viagem {
     private Date entradaFrota;
 
     @Column(name = "kilometragemviagem")
-    private Double kilometragemViagem;
+    private String kilometragemViagem;
 
     @ManyToOne
     @JoinColumn(name = "iduso", referencedColumnName = "iduso")

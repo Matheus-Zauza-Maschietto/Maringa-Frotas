@@ -30,15 +30,15 @@ public class Frota implements Serializable {
     @Column(name = "tipoveiculo")
     private Long tipoVeiculo;
     @Column(name = "neixos")
-    private Long nEixos;
+    private String nEixos;
     @Column(name = "dataadquirido")
     private Date dataAdquirido;
     @Column(name = "tipocombustivel")
     private Long tipoCombustivel;
     @Column(name = "tanquetotal")
-    private Long tanqueTotal;
+    private String tanqueTotal;
     @Column(name = "kmrodado")
-    private Long kmRodado;
+    private String kmRodado;
     @Column(name = "statusfrota")
     private Boolean statusFrota;
     private Boolean leilao;

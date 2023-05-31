@@ -15,8 +15,8 @@ public class MotoristaDTO implements Serializable {
     private String nome;
     private String cpf;
     private String email;
-    private Integer telefone;
-    private Integer cnh;
+    private String  telefone;
+    private String cnh;
     private String orgao;
     private String cargo;
 

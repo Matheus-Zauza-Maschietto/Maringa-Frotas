@@ -16,13 +16,10 @@ public class Motorista {
     @Column(name = "idpessoa")
     private Long motorista;
 
-    private Long cnh;
+    private String cnh;
 
     @OneToOne
     @MapsId
     @JoinColumn(name = "idpessoa")
     private Pessoa pessoa;
-
-
-
 }

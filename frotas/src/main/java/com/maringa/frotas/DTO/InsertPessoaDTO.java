@@ -13,7 +13,7 @@ public class InsertPessoaDTO {
     private String nome;
     private String cpf;
     private String email;
-    private Long telefone;
+    private String telefone;
     private Long idOrgao;
     private Long idCargo;
 

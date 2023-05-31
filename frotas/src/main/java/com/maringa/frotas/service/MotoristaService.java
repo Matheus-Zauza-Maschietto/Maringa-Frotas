@@ -38,8 +38,8 @@ public class MotoristaService {
             dto.setNome(motorista.getPessoa().getNome());
             dto.setCpf(motorista.getPessoa().getCpf());
             dto.setEmail(motorista.getPessoa().getEmail());
-            dto.setTelefone(motorista.getPessoa().getTelefone().intValue());
-            dto.setCnh(motorista.getCnh().intValue());
+            dto.setTelefone(motorista.getPessoa().getTelefone());
+            dto.setCnh(motorista.getCnh());
             dto.setOrgao(motorista.getPessoa().getIdOrgao().getNomeOrgao());
             dto.setCargo(motorista.getPessoa().getIdCargo().getNomecargo());
 
@@ -57,8 +57,8 @@ public class MotoristaService {
             dto.setNome(motorista.getPessoa().getNome());
             dto.setCpf(motorista.getPessoa().getCpf());
             dto.setEmail(motorista.getPessoa().getEmail());
-            dto.setTelefone(motorista.getPessoa().getTelefone().intValue());
-            dto.setCnh(motorista.getCnh().intValue());
+            dto.setTelefone(motorista.getPessoa().getTelefone());
+            dto.setCnh(motorista.getCnh());
             dto.setOrgao(motorista.getPessoa().getIdOrgao().getNomeOrgao());
             dto.setCargo(motorista.getPessoa().getIdCargo().getNomecargo());
 

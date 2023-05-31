@@ -37,4 +37,8 @@ public class Revisao {
     @JoinColumn(name = "idemprevisao", referencedColumnName = "idEmpRevisao")
     private EmpresaRevisao idEmpRevisao;
 
+    @ManyToOne
+    @JoinColumn(name = "idtiporevisao", referencedColumnName = "idTipoRevisao")
+    private TipoRevisao idTipoRevisao;
+
 }

@@ -17,7 +17,7 @@ public class ViagemToFrotaDTO implements Serializable {
         private Long idViagem;
         private Date saidaFrota;
         private Date entradaFrota;
-        private Double kilometragemViagem;
+        private String kilometragemViagem;
         private Uso idUso;
         private Motorista motorista;
 

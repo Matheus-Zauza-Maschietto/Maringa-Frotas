@@ -23,11 +23,11 @@ public class EmpresaRevisao {
     private String nomeEmpresa;
 
     @Column(name = "cepempresa")
-    private Long cepEmpresa;
+    private String cepEmpresa;
 
     @Column(name = "cnpjempresa")
-    private Long cnpjEmpresa;
+    private String cnpjEmpresa;
 
     @Column(name = "telefoneempresa")
-    private Long telefoneEmpresa;
+    private String telefoneEmpresa;
 }

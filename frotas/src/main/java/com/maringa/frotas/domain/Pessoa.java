@@ -22,7 +22,7 @@ public class Pessoa {
     private String nome;
     private String cpf;
     private String email;
-    private Long telefone;
+    private String telefone;
     @ManyToOne
     @JoinColumn(name = "idorgao", referencedColumnName = "idOrgao")
     private Orgao idOrgao;
@@ -37,4 +37,6 @@ public class Pessoa {
     @PrimaryKeyJoinColumn
     private Motorista motorista;
 
+    @Transient
+    private Boolean deletado;
 }
