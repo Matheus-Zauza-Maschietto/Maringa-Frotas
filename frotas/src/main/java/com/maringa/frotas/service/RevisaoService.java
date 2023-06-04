@@ -37,6 +37,10 @@ public class RevisaoService {
         return revisaoList;
     }
 
+    public Revisao saveRevisao(Revisao revisao){
+        return repository.save(revisao);
+    }
+
 
 
 }

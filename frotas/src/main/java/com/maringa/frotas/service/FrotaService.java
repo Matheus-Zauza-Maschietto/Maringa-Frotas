@@ -41,7 +41,6 @@ public class FrotaService {
             frotaAllDTO.setKmRodado(frota.getKmRodado());
             frotaAllDTO.setStatusFrota(frota.getStatusFrota());
             frotaAllDTO.setLeilao(frota.getLeilao());
-            frotaAllDTO.setIdMarca(frota.getIdMarca().getTipoMarca());
             frotaAllDTO.setIdOrgao(frota.getIdOrgao().getNomeOrgao());
             frotaAllDTO.setIdCategoria(frota.getIdCategoria().getTipoCategoria());
 
@@ -61,7 +60,6 @@ public class FrotaService {
         frotaAllDTO.setKmRodado(frota.getKmRodado());
         frotaAllDTO.setStatusFrota(frota.getStatusFrota());
         frotaAllDTO.setLeilao(frota.getLeilao());
-        frotaAllDTO.setIdMarca(frota.getIdMarca().getTipoMarca());
         frotaAllDTO.setIdOrgao(frota.getIdOrgao().getNomeOrgao());
         frotaAllDTO.setIdCategoria(frota.getIdCategoria().getTipoCategoria());
 
@@ -79,7 +77,7 @@ public class FrotaService {
     }
 
     public Frota findVeiculoByPlaca(String placa){
-        return repository.findFrotaByPlaca(placa);
+        return repository.findPlaca(placa);
     }
 
     public Frota findVeiculoById(Long id){
@@ -95,7 +93,6 @@ public class FrotaService {
         frotaViagemDTO.setPlaca(frota.getPlaca());
         frotaViagemDTO.setDataAdquirido(DateUtils.DateToString(frota.getDataAdquirido()));
         frotaViagemDTO.setTipoVeiculo(TipoVeiculoEnum.fromCodigo(frota.getTipoVeiculo()).getDescricao());
-        frotaViagemDTO.setIdMarca(frota.getIdMarca().getTipoMarca());
         frotaViagemDTO.setIdOrgao(frota.getIdOrgao().getNomeOrgao());
         frotaViagemDTO.setIdCategoria(frota.getIdCategoria().getTipoCategoria());
 

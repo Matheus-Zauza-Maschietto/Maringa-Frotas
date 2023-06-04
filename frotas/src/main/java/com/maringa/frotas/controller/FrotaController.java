@@ -57,7 +57,7 @@ public class FrotaController {
     }
 
     @PostMapping
-    public ResponseEntity<Frota> salvarCategoria(@RequestBody Frota veiculo){
+    public ResponseEntity<Frota> salvarVeiculo(@RequestBody Frota veiculo){
 
         Frota salvo = service.saveFrota(veiculo);
 

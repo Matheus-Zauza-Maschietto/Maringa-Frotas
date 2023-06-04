@@ -1,5 +1,6 @@
 package com.maringa.frotas.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,6 +13,7 @@ import java.util.Date;
 @Table(name = "revisoes")
 @Getter
 @Setter
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @AllArgsConstructor
 @NoArgsConstructor
 public class Revisao {

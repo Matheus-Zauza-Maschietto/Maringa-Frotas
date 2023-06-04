@@ -20,14 +20,22 @@ public class CategoriaController {
     @Autowired
     private CategoriaService service;
 
+    @Autowired
+    private MarcaService serviceMarca;
+
     @GetMapping
-    public ResponseEntity<List<Categoria>> findMarcas(){
+    public ResponseEntity<List<Categoria>> findModelo(){
         return ResponseEntity.ok(service.findAll());
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Categoria> findMarcasId(@PathVariable Long id){
+    public ResponseEntity<Categoria> findModeloById(@PathVariable Long id){
         return ResponseEntity.ok(service.findById(id));
+    }
+    @GetMapping("/marcas/{id}")
+    public ResponseEntity<List<Categoria>> findModeloByMarcaId(@PathVariable Long id){
+        Marca marca = serviceMarca.findById(id);
+        return ResponseEntity.ok(service.findByMarcaId(marca));
     }
 
     @PostMapping

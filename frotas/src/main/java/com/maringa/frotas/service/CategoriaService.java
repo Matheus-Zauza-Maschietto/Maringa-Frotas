@@ -23,8 +23,12 @@ public class CategoriaService {
         return repository.findById(id).orElse(null);
     }
 
+    public List<Categoria> findByMarcaId(Marca marca){
+        return repository.findAllByIdMarca(marca);
+    }
     public Categoria saveCategoria(Categoria categoria){
         return repository.save(categoria);
     }
+
 
 }

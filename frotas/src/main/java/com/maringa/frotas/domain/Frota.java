@@ -1,5 +1,6 @@
 package com.maringa.frotas.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,8 +13,9 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Data
-public class Frota implements Serializable {
+public class Frota  {
 
     @Id
     @Column(name = "idfrota")
@@ -26,7 +28,7 @@ public class Frota implements Serializable {
     private String chassi;
     private String renavam;
     @Column(name = "anofabricacao")
-    private Date anoFabricacao;
+    private Integer anoFabricacao;
     @Column(name = "tipoveiculo")
     private Long tipoVeiculo;
     @Column(name = "neixos")

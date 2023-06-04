@@ -1,7 +1,7 @@
 package com.maringa.frotas.service;
 
 import com.maringa.frotas.DTO.FuncionarioDTO;
-import com.maringa.frotas.DTO.InsertPessoaDTO;
+import com.maringa.frotas.DTO.Insert.FuncionarioInsertDTO;
 import com.maringa.frotas.domain.Pessoa;
 import com.maringa.frotas.repository.MotoristaRepository;
 import com.maringa.frotas.repository.PessoaRepository;
@@ -61,7 +61,7 @@ public class PessoaService {
         return listPessoaDTO;
     }
 
-    public Pessoa salvarPessoa(InsertPessoaDTO pessoaDTO){
+    public Pessoa salvarPessoa(FuncionarioInsertDTO pessoaDTO){
 
         Pessoa pessoa = Pessoa.builder()
                 .nome(pessoaDTO.getNome())

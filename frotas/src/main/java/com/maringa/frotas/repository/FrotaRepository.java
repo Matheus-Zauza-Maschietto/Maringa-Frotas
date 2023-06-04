@@ -29,7 +29,9 @@ public interface FrotaRepository extends JpaRepository<Frota, Long> {
     @Query(value = findAll, nativeQuery = true)
     public List<Frota> findAllByDeletadoIsFalse();
 
-    public Frota findFrotaByPlaca(String placa);
+    String findPlaca = "select * from frota where deletado = 0 and placa like (:placa) ";
+    @Query(value = findPlaca, nativeQuery = true)
+    public Frota findPlaca(@Param("placa") String placa);
 
     public Frota findFrotaByIdFrota(Long id);
 
@@ -40,6 +42,5 @@ public interface FrotaRepository extends JpaRepository<Frota, Long> {
     @Modifying
     @Query(value = sqlDeleteFrota, nativeQuery = true)
     void updateDeletadoById(@Param("id") Long id);
-
 
 }
