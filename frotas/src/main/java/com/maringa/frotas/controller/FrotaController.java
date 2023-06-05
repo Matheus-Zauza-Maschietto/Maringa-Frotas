@@ -2,6 +2,7 @@ package com.maringa.frotas.controller;
 
 import com.maringa.frotas.DTO.FrotaAllDTO;
 import com.maringa.frotas.DTO.FrotaViagemDTO;
+import com.maringa.frotas.DTO.Insert.FrotaInsertDTO;
 import com.maringa.frotas.domain.Frota;
 import com.maringa.frotas.service.FrotaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,13 +58,13 @@ public class FrotaController {
     }
 
     @PostMapping
-    public ResponseEntity<Frota> salvarVeiculo(@RequestBody Frota veiculo){
+    public ResponseEntity<Frota> salvarVeiculo(@RequestBody FrotaInsertDTO veiculoDTO){
 
-        Frota salvo = service.saveFrota(veiculo);
+        Frota salvo = service.saveFrota(veiculoDTO);
 
         ServletUriComponentsBuilder builder = ServletUriComponentsBuilder.fromCurrentRequest();
 
-        var uri = builder.path("/{id}").buildAndExpand(salvo.getIdCategoria()).toUri();
+        var uri = builder.path("/{id}").buildAndExpand(salvo.getIdFrota()).toUri();
 
         return ResponseEntity.created(uri).body(salvo);
     }

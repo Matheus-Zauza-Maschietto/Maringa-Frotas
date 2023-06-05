@@ -13,17 +13,19 @@ import java.util.Date;
 @Data
 public class FrotaInsertDTO {
 
-    private String placa;
-    private String cor;
+    private Long veiculo;
+    private Long marca;
     private String chassi;
+    private Long modelo;
+    private String placa;
     private String renavam;
-    private Date dataAquisicao;
-    private Integer anoFabricacao;
-    private Long idMarca;
-    private Long idModelo;
-    private String capacidadeTanque;
-    private String quilometrosRodados;
+    private Long combustivel;
     private String numeroEixos;
+    private Integer anoModelo;
+    private Date dataAquisicao;
+    private String quilometrosRodados;
+    private String capacidadeTanque;
+    private String cor;
 
 
 

@@ -2,15 +2,13 @@ package com.maringa.frotas.service;
 
 import com.maringa.frotas.DTO.FrotaAllDTO;
 import com.maringa.frotas.DTO.FrotaViagemDTO;
+import com.maringa.frotas.DTO.Insert.FrotaInsertDTO;
 import com.maringa.frotas.DTO.ViagemToFrotaDTO;
 import com.maringa.frotas.Utils.DateUtils;
+import com.maringa.frotas.domain.*;
 import com.maringa.frotas.domain.Enums.TipoCombustivelEnum;
 import com.maringa.frotas.domain.Enums.TipoVeiculoEnum;
-import com.maringa.frotas.domain.Frota;
-import com.maringa.frotas.domain.Viagem;
-import com.maringa.frotas.repository.FrotaRepository;
-import com.maringa.frotas.repository.MotoristaRepository;
-import com.maringa.frotas.repository.ViagemRepository;
+import com.maringa.frotas.repository.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +25,12 @@ public class FrotaService {
     private ViagemRepository viagemRepository;
     @Autowired
     private MotoristaRepository motoristaRepository;
+    @Autowired
+    private MarcaRepository marcaRepository;
+    @Autowired
+    private CategoriaRepository categoriaRepository;
+    @Autowired
+    private OrgaoRepositoy orgaoRepositoy;
 
     public static List<FrotaAllDTO> listToListDTO(List<Frota> listFrota) {
         List<FrotaAllDTO> listFrotaAllDTO = new ArrayList<>();
@@ -110,7 +114,26 @@ public class FrotaService {
 
     }
 
-    public Frota saveFrota(Frota veiculo){
+    public Frota saveFrota(FrotaInsertDTO veiculoDTO){
+
+        Frota veiculo = new Frota();
+        veiculo.setPlaca(veiculoDTO.getPlaca());
+        veiculo.setCor("");
+        veiculo.setChassi(veiculoDTO.getChassi());
+        veiculo.setRenavam(veiculoDTO.getRenavam());
+        veiculo.setAnoFabricacao(veiculoDTO.getAnoModelo());
+        veiculo.setTipoVeiculo(veiculoDTO.getVeiculo());
+        veiculo.setNEixos(veiculoDTO.getNumeroEixos());
+        veiculo.setDataAdquirido(veiculoDTO.getDataAquisicao());
+        veiculo.setTipoVeiculo(veiculoDTO.getCombustivel());
+        veiculo.setTanqueTotal(veiculoDTO.getCapacidadeTanque());
+        veiculo.setKmRodado(veiculoDTO.getQuilometrosRodados());
+        veiculo.setStatusFrota(false);
+        veiculo.setLeilao(false);
+        veiculo.setIdMarca(marcaRepository.findById(veiculoDTO.getMarca()).orElse(new Marca()));
+        veiculo.setIdCategoria(categoriaRepository.findById(veiculoDTO.getModelo()).orElse(new Categoria()));
+        //veiculo.setIdOrgao(orgaoRepositoy.findById(veiculoDTO.getOrgao()).orElse(new Orgao()));
+
         return repository.save(veiculo);
     }
 
