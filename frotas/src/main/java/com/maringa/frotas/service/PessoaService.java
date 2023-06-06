@@ -76,7 +76,7 @@ public class PessoaService {
     }
 
     public void deletarPessoa(Long id){
-        repository.deleteById(id);
+        repository.updateDeletadoById(id);
     }
 }
 

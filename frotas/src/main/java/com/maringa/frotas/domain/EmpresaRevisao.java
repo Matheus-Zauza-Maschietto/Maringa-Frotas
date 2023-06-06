@@ -30,4 +30,7 @@ public class EmpresaRevisao {
 
     @Column(name = "telefoneempresa")
     private String telefoneEmpresa;
+
+    @Transient
+    private boolean deletado;
 }

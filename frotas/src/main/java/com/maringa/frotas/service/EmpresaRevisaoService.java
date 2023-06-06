@@ -47,6 +47,6 @@ public class EmpresaRevisaoService {
     }
 
     public void deletarEmpresa(Long id){
-        repository.deleteById(id);
+        repository.updateDeletadoById(id);
     }
 }

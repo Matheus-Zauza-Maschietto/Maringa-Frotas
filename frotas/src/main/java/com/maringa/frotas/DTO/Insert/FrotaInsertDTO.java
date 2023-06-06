@@ -25,6 +25,7 @@ public class FrotaInsertDTO {
     private Date dataAquisicao;
     private String quilometrosRodados;
     private String capacidadeTanque;
+    private Long orgao;
     private String cor;
 
 

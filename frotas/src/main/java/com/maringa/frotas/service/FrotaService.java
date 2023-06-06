@@ -45,6 +45,7 @@ public class FrotaService {
             frotaAllDTO.setKmRodado(frota.getKmRodado());
             frotaAllDTO.setStatusFrota(frota.getStatusFrota());
             frotaAllDTO.setLeilao(frota.getLeilao());
+            frotaAllDTO.setIdMarca(frota.getIdMarca().getTipoMarca());
             frotaAllDTO.setIdOrgao(frota.getIdOrgao().getNomeOrgao());
             frotaAllDTO.setIdCategoria(frota.getIdCategoria().getTipoCategoria());
 
@@ -132,7 +133,7 @@ public class FrotaService {
         veiculo.setLeilao(false);
         veiculo.setIdMarca(marcaRepository.findById(veiculoDTO.getMarca()).orElse(new Marca()));
         veiculo.setIdCategoria(categoriaRepository.findById(veiculoDTO.getModelo()).orElse(new Categoria()));
-        //veiculo.setIdOrgao(orgaoRepositoy.findById(veiculoDTO.getOrgao()).orElse(new Orgao()));
+        veiculo.setIdOrgao(orgaoRepositoy.findById(veiculoDTO.getOrgao()).orElse(new Orgao()));
 
         return repository.save(veiculo);
     }
